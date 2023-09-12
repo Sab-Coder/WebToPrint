@@ -1,0 +1,38 @@
+{% extends 'admin/layout.html' %} {% load static %}{% block maincontent %}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 p-3" style="margin: 0;">
+            <div class="row">
+                <div class="col-6">
+                    <p style="font-weight: bold;">Club Name : </p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight:300;">{{ club_data.name }}</p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight: bold;">Email : </p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight:300;">{{ club_data.email }}</p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight: bold;">Phone Number : </p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight:300;">{{ club_data.phone }}</p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight: bold;">Location : </p>
+                </div>
+                <div class="col-6">
+                    <p style="font-weight:300;">{{ club_data.location }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>
+{% endblock %}

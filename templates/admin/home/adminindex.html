@@ -1,0 +1,90 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row">
+        <div class="col px-5 py-3">
+            <h4 class="text-secondary">Club Data</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 p-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-secondary">Players</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'add_player' %}" style="text-decoration: none;">ADD</a></button>
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'show_players' %}" style="text-decoration: none;">VIEW PLAYERS</a></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-4 p-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-secondary">Teams</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'add_team' %}" style="text-decoration: none;">ADD</a></button>
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'show_teams' %}" style="text-decoration: none;">VIEW TEAMS</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col px-5 py-3">
+            <h4 class="text-secondary">Other Clubs Data</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col p-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-secondary">Clubs</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'add_away_club' %}" style="text-decoration: none;">ADD</a></button>
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'show_away_club' %}" style="text-decoration: none;">VIEW CLUBS</a></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col p-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-secondary">Players</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'add_away_player' %}" style="text-decoration: none;">ADD</a></button>
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'show_away_player' %}" style="text-decoration: none;">VIEW PLAYERS</a></button>
+                </div>
+            </div>
+
+        </div>
+        <div class="col p-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-secondary">Teams</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'add_away_team' %}" style="text-decoration: none;">ADD</a></button>
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'show_away_teams' %}" style="text-decoration: none;">VIEW TEAMS</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col px-5 py-3">
+            <h4 class="text-secondary">Matches</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4 p-3">
+            <div class="card p-3 text-center">
+                <h5 class="text-secondary">Match</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'add_match_data' %}" style="text-decoration: none;">ADD</a></button>
+                    <button class="btn btn-outline-primary text-dark w-100 m-3" type="button"><a href="{% url 'show_matches' %}" style="text-decoration: none;">VIEW MATCH</a></button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

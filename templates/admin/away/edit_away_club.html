@@ -1,0 +1,51 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="card p-3">
+                <center>
+                    <h3>EDIT CLUB</h3>
+                </center>
+                <br>
+                <form action="/update_away_club/{{club_data.club_id}}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 px-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" value="{{club_data.name}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email" value="{{club_data.email}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" name="phone" value="{{club_data.phone}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Location</label>
+                            <input type="text" class="form-control" name="location" value="{{club_data.location}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Images</label>
+                            <input type="file" class="form-control" name="image" value="{{club_data.image.url}}">
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-outline-primary w-100">UPDATED USER DATA</button>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

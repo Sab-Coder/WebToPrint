@@ -1,0 +1,70 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="card p-3">
+                <center>
+                    <h3>MATCH DETAILS</h3>
+                </center>
+                <br>
+                <form action="/update_match/{{fixture.match_id}}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 px-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" value="{{fixture.name}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Home Team</label>
+                            <select class="form-select" aria-label="Default" name="home_team">
+                                <option value={{fixture.team_id.team_id}} selected>{{fixture.team_id.name}}</option>
+                                {% for h in home %}
+                                    <option value="{{h.team_id}}">{{h.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Away Team</label>
+                            <select class="form-select" aria-label="Default" name="away_team">
+                                <option value={{fixture.away_team_id.team_id}} selected>{{fixture.away_team_id.name}}</option>
+                                {% for a in away %}
+                                    <option value="{{a.team_id}}">{{a.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>venue</label>
+                            <input type="text" class="form-control" name="venue" value="{{fixture.venue}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Date</label>
+                            <input type="text" class="form-control" name="date" value="{{fixture.date}}">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Status</label>
+                            <select class="form-select" aria-label="Default" name="status">
+                                <option value="{{fixture.status}}" selected>{{fixture.status}}</option>
+                                <option value="Upcoming">Upcoming</option>
+                                <option value="Ongoing">Ongoing</option>
+                                <option value="Finished">Finished</option>
+                            </select>
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-4">
+                                    <input type="submit" class="btn btn-outline-primary w-100" value="UPDATE MATCH DATA">
+                                </div>
+                                <div class="col"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

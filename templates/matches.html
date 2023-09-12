@@ -1,0 +1,47 @@
+{% extends 'admin/layout.html' %}{% block maincontent %}
+<section class="mx-5 mt-24">
+    <div class="container mx-auto">
+        <div class="container p-3">
+            <center>
+                <h3>MATCHES</h3>
+            </center>
+            <div class="row p-3">
+                <div class="col-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Venue</th>
+                                <th>Date</th>
+                                <th>Home Team</th>
+                                <th>Oponent Team</th>
+                                <th>Status</th>
+                                <!-- <th>Actions</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for fixture in match_data %}
+                            <tr>
+                                <td class="p-3">{{fixture.name}}</td>
+                                <td class="p-3">{{fixture.venue}}</td>
+                                <td class="p-3">{{fixture.date}}</td>
+                                <td class="p-3">{{fixture.team_id.name}}</td>
+                                <td class="p-3">{{fixture.away_team_id.name}}</td>
+                                <td class="p-3">{{fixture.status}}</td>
+                                <!-- <td class="p-3">
+                                    <a href="/edit_match/{{fixture.match_id}}"><button type="button" class="btn btn-outline-primary w-100 mb-3">Edit</button></a>
+                                    <a href="/delete_match/{{fixture.match_id}}"><button type="button" class="btn btn-outline-primary w-100 mb-3">Delete</button></a>
+                                </td> -->
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

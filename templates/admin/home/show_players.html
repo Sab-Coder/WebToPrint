@@ -1,0 +1,53 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container p-3">
+    <center>
+        <h3>CLUB PLAYERS</h3>
+    </center>
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="row">
+
+                <div class="col-2">
+                    <a href="{% url 'adminindex' %}"><button class="btn btn-outline-secondary w-100">Back</button></a>
+                </div>
+                <div class="col-8"></div>
+                <div class="col-2">
+                    <a href="{% url 'add_player' %}"><button class="btn btn-outline-secondary w-100">New</button></a>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Club</th>
+                        <th>Matches Played</th>
+                        <th>Goals</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for player in players %}
+                    <tr>
+                        <td class="p-3"><img src="{{player.image.url}}" class="rounded-circle" alt="player_image" height="50" width="50"></td>
+                        <td class="p-3">{{ player.firstname }} {{player.lastname}}</td>
+                        <td class="p-3">{{player.club_id.name}}</td>
+                        <td class="p-3">{{player.matches_played}}</td>
+                        <td class="p-3">{{player.goals}}</td>
+                        <td class="p-3">
+                            <a href="/edit_player_data/{{player.player_id}}"><button type="button" class="btn btn-outline-primary w-100 mb-3">Edit</button></a>
+                            <a href="/delete_player/{{player.player_id}}"><button type="button" class="btn btn-outline-primary w-100 mb-3">Delete</button></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock %}

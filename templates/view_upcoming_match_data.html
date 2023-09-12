@@ -1,0 +1,67 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-9"></div>
+                <div class="col-3 p-3">
+                    <a href="/pdf_generate_page/{{match_data.match_id}}"><button class="btn btn-outline-secondary w-100">GENERATE PDF</button></a>
+                </div>
+            </div>
+            <div class="card p-3 my-3">
+                <center>
+                    <h2 class="text-3xl font-bold mb-5">{{match_data.name}}</h2>
+                </center>
+                <div class="container">
+
+                    <div class="row bg-light p-3">
+                        <h3 class="text-info">General Details</h3>
+                        <div class="col-4">
+                            <label style="font-weight: bold;">Name</label>
+                            <p>{{match_data.name}}</p>
+                        </div>
+                        <div class="col-4">
+                            <label style="font-weight: bold;">Venue</label>
+                            <p>{{match_data.venue}}</p>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <label style="font-weight: bold;">Date</label>
+                            <p>{{match_data.date}}</p>
+                        </div>
+                        <div class="col-4">
+                            <label style="font-weight: bold;">Status</label>
+                            <p>{{match_data.status}}</p>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <br>
+                    <h3 class="text-info">Team Details</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="text-secondary">Home Team</h4>
+                            <label style="font-weight: bold;">Team Name</label>
+                            <input type="text" class="form-control" value="{{match_data.team_id.name}}">
+                            <br>
+                            <label style="font-weight: bold;">Team Members</label> {% for player in home_players %}
+                            <input type="text" class="form-control my-3" value="{{player.player_id.firstname}} {{player.player_id.lastname}}"> {% endfor %}
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-secondary">Away Team</h4>
+                            <label style="font-weight: bold;">Team Name</label>
+                            <input type="text" class="form-control" value="{{match_data.away_team_id.name}}">
+                            <br>
+                            <label style="font-weight: bold;">Team Members</label> {% for player in away_players %}
+                            <input type="text" class="form-control my-3" value="{{player.player_id.firstname}} {{player.player_id.lastname}}"> {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+</div>
+{% endblock %}

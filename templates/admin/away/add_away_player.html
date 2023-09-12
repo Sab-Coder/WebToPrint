@@ -1,0 +1,64 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="card p-3">
+                <center>
+                    <h3>ADD PLAYER</h3>
+                </center>
+                <br>
+                <form action="{% url 'add_awayplayer_data' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 px-3">
+                            <div class="row">
+                                <div class="col">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" name="firstname">
+                                </div>
+                                <div class="col">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" name="lastname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Club</label>
+                            <select class="form-select" aria-label="Default" name="clubid">
+                                <option selected>Choose Player</option>
+                                {% for club in clubs %}
+                                    <option value="{{club.club_id}}">{{club.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Matches Played</label>
+                            <input type="text" class="form-control" name="matches_played">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Goals</label>
+                            <input type="text" class="form-control" name="goals">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Images</label>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-4">
+                                    <input type="submit" class="btn btn-outline-primary w-100" value="Add Player">
+                                </div>
+                                <div class="col"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

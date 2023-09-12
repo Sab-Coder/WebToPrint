@@ -1,0 +1,53 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container p-3">
+    <center>
+        <h3>CLUB TEAMS</h3>
+    </center>
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="row">
+
+                <div class="col-2">
+                    <a href="{% url 'adminindex' %}"><button class="btn btn-outline-secondary w-100">Back</button></a>
+                </div>
+                <div class="col-8"></div>
+                <div class="col-2">
+                    <a href="{% url 'add_away_team' %}"><button class="btn btn-outline-secondary w-100">New</button></a>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Club</th>
+                        <th>Players</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for team in teams %}
+                    <tr>
+                        <td>{{team.name}}</td>
+                        <td>{{team.club_id.name}}</td>
+                        <td>
+                            {% for teamplayer in teamplayers %} {% if teamplayer.team_id.team_id == team.team_id %}
+                            <p>{{teamplayer.player_id.firstname}} {{teamplayer.player_id.lastname}}</p>
+                            {% endif %} {% endfor %}
+                        </td>
+                        <td>
+                            <div class="row">
+                                <a class="pt-3" href="/edit_away_team_data/{{team.team_id}}"><button type="button" class="btn btn-outline-primary w-100">EDIT</button></a>
+                                <a class="pt-3" href="/delete_away_team/{{team.team_id}}"><button type="button" class="btn btn-outline-primary w-100">DELETE</button></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock %}

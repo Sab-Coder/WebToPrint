@@ -1,0 +1,55 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="card p-3">
+                <center>
+                    <h3>UPDATE PLAYER DETAILS</h3>
+                </center>
+                <br>
+                <form action="/update_awayplayer/{{player.player_id}}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 px-3">
+                            <div class="row">
+                                <div class="col">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" value="{{player.firstname}}" name="firstname">
+                                </div>
+                                <div class="col">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" value="{{player.lastname}}" name="lastname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Matches Played</label>
+                            <input type="text" class="form-control" value="{{player.matches_played}}" name="matches_played">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Goals</label>
+                            <input type="text" class="form-control" value="{{player.goals}}" name="goals">
+                        </div>
+                        <div class="col-12 px-3">
+                            <label>Images</label>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-outline-primary w-100">Update Player</button>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

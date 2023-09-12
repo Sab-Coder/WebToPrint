@@ -1,0 +1,51 @@
+{% extends 'admin/layout.html' %} {% block maincontent %}
+<div class="container">
+    <div class="row p-3">
+        <div class="col"></div>
+        <div class="col-8">
+            <div class="card p-3">
+                <center>
+                    <h3>EDIT TEAM DATA</h3>
+                </center>
+                <br>
+                <form action="/update_away_team/{{team.team_id}}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 px-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" value="{{team.name}}" name="name">
+                        </div>
+                        <div class="col-12 px-3">
+                            <div class="row">
+                                {% for teamplayer in teamplayers %}
+                                <div class="col-6">
+                                    <label>Player</label>
+                                    <select class="form-select" aria-label="Default select example" name="player{{teamplayer.3}}">
+                                        <option value="{{teamplayer.0}}" selected>{{teamplayer.1}} {{teamplayer.2}}</option>
+                                        {% for player in players %}
+                                        <option value="{{player.player_id}}">{{player.firstname}} {{player.lastname}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+                        <div class="col-12 p-3">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-outline-primary w-100">Update Team</button>
+                                </div>
+                                <div class="col"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}

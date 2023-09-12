@@ -1,0 +1,165 @@
+{% extends 'layout.html' %} {% block scriptcontent %}
+<!-- tailwind custom class -->
+<style>
+    table {
+        background-color: white;
+        border-collapse: collapse;
+        border: 1px solid black;
+        /* margin-left: auto;
+        margin-right: auto; */
+    }
+    
+    table td,
+    th {
+        border: 1px solid black;
+        text-align: center;
+        vertical-align: middle;
+        height: 50px;
+    }
+</style>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    clifford: '#da373d',
+                    'body-color': '#071952',
+                    'btn-color': '#75C2F6',
+                }
+            }
+        }
+    }
+</script>
+{% endblock %} {% block banner %} {% endblock %} {% block maincontent %}
+
+<section class="mx-5 mt-24">
+    <div class="container mx-auto">
+        <h2>Player List</h2>
+        <table class="table">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Club</th>
+                <th scope="col">Our Team</th>
+            </tr>
+            <!-- Sample player data -->
+            <tr>
+                <td>Player 1</td>
+                <td>Club A</td>
+                <td>Our Team X</td>
+            </tr>
+            <tr>
+                <td>Player 2</td>
+                <td>Club B</td>
+                <td>Our Team Y</td>
+            </tr>
+            <tr>
+                <td>Player 3</td>
+                <td>Club A</td>
+                <td>Our Team X</td>
+            </tr>
+            <tr>
+                <td>Player 4</td>
+                <td>Club C</td>
+                <td>Our Team Z</td>
+            </tr>
+            <tr>
+                <td>Player 5</td>
+                <td>Club B</td>
+                <td>Our Team Y</td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section class="mx-5">
+    <div class="container mx-auto">
+        <!-- Match List -->
+        <h2>Match List</h2>
+        <table class="table">
+            <tr>
+                <th scope="col">Opponent</th>
+                <th scope="col">Our Team</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
+            </tr>
+            <!-- Sample match data -->
+            <tr>
+                <td>Opponent 1</td>
+                <td>Our Team A</td>
+                <td>2023-09-15</td>
+                <td>Stadium X</td>
+            </tr>
+            <tr>
+                <td>Opponent 2</td>
+                <td>Our Team B</td>
+                <td>2023-09-20</td>
+                <td>Stadium Y</td>
+            </tr>
+            <tr>
+                <td>Opponent 3</td>
+                <td>Our Team A</td>
+                <td>2023-09-25</td>
+                <td>Stadium Z</td>
+            </tr>
+            <tr>
+                <td>Opponent 4</td>
+                <td>Our Team C</td>
+                <td>2023-09-30</td>
+                <td>Stadium X</td>
+            </tr>
+            <tr>
+                <td>Opponent 5</td>
+                <td>Our Team B</td>
+                <td>2023-10-05</td>
+                <td>Stadium Y</td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section class="mx-5">
+    <div class="container mx-auto">
+        <!-- Player Detail -->
+        <h2>Player Detail</h2>
+        <table class="table">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Club</th>
+            </tr>
+            <!-- Sample player detail -->
+            <tr>
+                <td>Player 1</td>
+                <td>Club A</td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section class="mx-5">
+    <div class="container mx-auto">
+        <!-- Match Detail -->
+        <h2>Match Detail</h2>
+        <table class="table">
+            <tr>
+                <th scope="col">Opponent</th>
+                <th scope="col">Our Team</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
+            </tr>
+            <!-- Sample match detail -->
+            <tr>
+                <td>Opponent 1</td>
+                <td>Our Team A</td>
+                <td>2023-09-15</td>
+                <td>Stadium X</td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section class="my-5">
+    <div class="container mx-auto">
+        <form action="{% url 'pdf' %}">
+            <input class="btn btn-outline-light text-white" type="submit" value="Generate PDF" formtarget="_blank" />
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}
